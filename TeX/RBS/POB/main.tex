@@ -1,0 +1,40 @@
+\documentclass{ltjsreport}
+\usepackage{style/main}    
+\makeatletter
+\renewcommand{\normalsize}{%
+  \fontsize{13pt}{22pt}\selectfont
+}
+\makeatother
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{} % ヘッダー・フッタークリア
+
+\renewcommand{\chaptermark}[1]{%
+  \markboth{%
+    \titlejfont\bfseries\fontsize{14pt}{20pt}\selectfont 第\thechapter 章\quad #1%
+  }{}%
+}
+\fancyhead[L]{\titlejfont\bfseries\leftmark} 
+\fancyhead[R]{\titlejfont\bfseries\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\begin{document}
+
+\tableofcontents
+
+\include{chapters/chapter1}
+\include{chapters/chapter2}
+\include{chapters/chapter3}
+\include{chapters/chapter4}
+\include{chapters/chapter5}
+\include{chapters/chapter6}
+\include{chapters/chapter7}
+\include{chapters/chapter8}
+\include{chapters/chapter9}
+\include{chapters/chapter10}
+\include{chapters/chapter11}
+\include{chapters/chapter12}
+\include{chapters/chapter13}
+
+\end{document}
