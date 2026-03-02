@@ -43,7 +43,7 @@
 ]{FOT-TsukuOldGothicStd}
 
 \geometry{
-    top=25mm,          % ページ上部余白
+    top=22mm,          % ページ上部余白
     headheight=28pt,   % ヘッダーの高さ
     headsep=5mm,       % ヘッダーと本文の間隔
     bottom=15mm,
@@ -56,9 +56,9 @@
 
 \titleformat{\chapter}[block]
   {\fontsize{25pt}{10pt}\titlejfont\bfseries\filleft\selectfont}
-  {} % 章番号を label に入れる場合は空に
-  {0pt} % 番号とタイトルの間隔
-  {} % タイトルの書き方
+  {}
+  {0pt}
+  {}
   [\vspace{0.5em}\hrule
    \vspace{0.3em}{\Large\selectfont \filleft 第 \thechapter 章}] % 装飾
 
@@ -75,11 +75,12 @@
 % セクション番号を「第○講」にする
 \renewcommand{\thesection}{第\arabic{lecture}講}
 
-% section                                                                                                                                                                                                                                                                                                                                                              
+\preto\section{\clearpage}
+
+% section
 \titleformat{\section}[block]
 {}{}{0pt}
 {
-    \clearpage
     \colorbox{teal}{\begin{picture}(0,15)\end{picture}}
     \hspace{0pt}
     \normalfont \fontsize{18pt}{32pt}\titlejfont\bfseries \thesection
