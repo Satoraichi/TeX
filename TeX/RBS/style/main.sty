@@ -1,0 +1,105 @@
+\ProvidesPackage{main}
+
+\RequirePackage{luatexja-fontspec}
+\RequirePackage{geometry}
+\RequirePackage{xcolor}
+\RequirePackage{titlesec}
+\RequirePackage{enumitem}
+
+% ===== カラー =====
+\definecolor{teal}{RGB}{0,128,128}
+\definecolor{powderblue}{RGB}{176,224,230}
+\definecolor{darkslateblue}{RGB}{72,61,139}
+\definecolor{darkslategray}{RGB}{47,79,79}
+\definecolor{lightcyan}{RGB}{224,255,255}
+
+% ===== 欧文フォント =====
+\setmainfont[
+  Path = ./fonts/,
+  Extension = .otf,
+  UprightFont = *-L,
+  BoldFont = *-B,
+  JFM = jlreq
+]{FOT-UDMinchoPr6}
+
+% ===== 日本語フォント =====
+\setmainjfont[
+  Path = ./fonts/,
+  Extension = .otf,
+  UprightFont = *-L,
+  BoldFont = *-B,
+  JFM = jlreq
+]{FOT-UDMinchoPr6}
+
+% ===== タイトル用フォント =====
+\newjfontfamily\titlejfont[
+    Path = ./fonts/,
+    Extension = .otf,
+    UprightFont = *-M,
+    BoldFont    = *-B,
+    LightFont   = *-L,
+    FontFace = {db}{n}{*-D},
+    JFM = jlreq,
+]{FOT-TsukuOldGothicStd}
+
+% ===== 余白 =====
+\geometry{
+    top=13mm,          % ページ上部余白
+    headheight=0pt,   % ヘッダーの高さ
+    headsep=0mm,       % ヘッダーと本文の間隔
+    bottom=13mm,
+    left=12mm,
+    right=12mm
+}
+
+% ===== タイトル =====
+\newcommand{\doctitle}[1]{
+\begin{center}
+{\titlejfont\fontseries{db}\fontsize{23pt}{30pt}\selectfont #1}
+\end{center}
+\vspace{1.5em}
+}
+
+% ===== 宛名 + 日付ブロック =====
+\newcommand{\recipientinfo}[3]{
+\noindent
+\begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lr}
+{\fontsize{13pt}{20pt}\selectfont #1} &
+{\fontsize{13pt}{20pt}\selectfont #2} \\[5pt]
+&
+{\fontsize{13pt}{20pt}\selectfont #3}
+\end{tabular*}
+\vspace{1.5em}
+}
+
+% ===== 本文 =====
+\newcommand{\bodytext}{
+\fontsize{13pt}{20pt}\selectfont
+}
+
+% ===== 記 =====
+\newcommand{\kicenter}{
+\vspace{1.2em}
+\begin{center}
+{\fontsize{13pt}{18pt}\selectfont 記}
+\end{center}
+}
+
+% ===== 以上 =====
+\newcommand{\docend}{
+\begin{flushright}
+{\fontsize{13pt}{18pt}\selectfont 以上}
+\end{flushright}
+}
+
+% ===== 箇条書き =====
+\setlist[enumerate]{
+leftmargin=2em,
+label=\arabic*.,
+parsep=0.2em
+}
+
+\setlist[enumerate,2]{
+label=( \arabic* ),
+leftmargin=2em
+}
